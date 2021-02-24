@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+.parent {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: lightgray;
+}
+.child {
+	min-width: 640px;
+	border-radius: 30px;
+	padding: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	box-shadow: 1px 1px 10px rgba(0,0,0,.4);
+}
+.child h1 {
+	font-size: 32px;
+	font-weight: bold;
+}
+#enter-button {
+	background-color: cornflowerblue;
+	border-radius: 15px;
+	color: white;
+	display: block;
+	margin-top: 20px;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	top: 50%;
+}
+#enter-button:hover {
+	background-color: indianred;
+}
