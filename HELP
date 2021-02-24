@@ -1,0 +1,42 @@
+FrameWP 1.0 beta
+
+/*
+--------------------------------------------
+	IMPORTANT
+--------------------------------------------
+*/
+
+This version of FrameWP was tested in WordPress 5.6.2 Multisite with Force Login activated. 
+It works, but this release is not perfect.
+
+- This plugin is not SEO-ready as of yet. 
+- Users can navigate from page to tags, categories, and user pages without getting booted out.
+- Only admins can navigate to posts from anywhere in the backend. Contributors, editors, etc will get the boot.
+
+Obviously, you should limit your use of this plugin to test servers.
+
+/*
+--------------------------------------------
+	INSTALLATION
+--------------------------------------------
+*/
+
+FrameWP will automatically create three new pages in WordPress when activated:
+- Landing Page: The first page visitors will see when go to your-wordpress-website.com
+- Content Page: A simple page that will present all your content in an Iframe
+- All Posts: Shows all posts.
+
+This plugin makes use of templates; however, these will have to be set manually before they can used.
+
+Assign the appropriate template to each page accordingly:
+- Landing Page: FrameWP Landing Page
+- Content Page: FrameWP Iframe Page
+
+Next, go to your Reading settings in WordPress and assign each page like so:
+- Front Page: Landing Page
+- Posts Page: All Posts
+
+Finally, go to FrameWP settings and check to make sure that everything looks like this:
+- Landing Page: Landing Page
+- Content Page: Content Page
+- Posts Page: All Posts
