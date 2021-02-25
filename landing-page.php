@@ -4,22 +4,26 @@
 
 	$framewp_option = get_option('framewp_options');
 
-	$toolbar = $framewp_option['show_toolbar'];
-	$menubar = $framewp_option['show_menubar'];
+	// $toolbar = $framewp_option['show_toolbar'];
+	// $menubar = $framewp_option['show_menubar'];
 	$scrollbars = $framewp_option['show_scrollbars'];
 	$resizable = $framewp_option['resizable_window'];
 	
+	/*
 	if (isset($toolbar) && $toolbar === 'show_toolbar') {
 		$toolbar = 'yes';
 	} else {
 		$toolbar = 'no';
 	}
-
+	*/
+	
+	/*
 	if (isset($menubar) && $menubar === 'show_menubar') {
 		$menubar = 'yes';
 	} else {
 		$menubar = 'no';
 	}
+	*/
 
 	if (isset($scrollbars) && $scrollbars === 'show_scrollbars') {
 		$scrollbars = 'yes';
@@ -46,11 +50,29 @@
 <link href="<?php echo $plugin_dir_url . "landing-page.css"; ?>" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+
 $(document).ready(function(){
    $(document).bind("contextmenu",function(e){
       return false;
    });
 });
+
+	//"resizable,scrollbars,status"
+	var windowObjectReference = null;
+	// var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+	var windowFeatures = "resizable=<?php echo $resizable; ?>,scrollbars=<?php echo $scrollbars; ?>,status";
+	
+	function openRequestedPopup() {
+		if (windowObjectReference == null || windowObjectReference.closed) {
+			windowObjectReference = window.open(
+				"<?php echo get_content_page_url(); ?>",
+				"<?php echo $website_title; ?>",
+				windowFeatures
+			);
+		} else {
+			windowObjectReference.focus();
+		};
+	}
 </script>
 </head>
 
@@ -58,14 +80,10 @@ $(document).ready(function(){
 
 <div class="parent">
 	<div class="child">
-	<?php 
-		if (!isset($img_url) || $img_url === '') { 
-			echo "<h1>" . $website_title . "</h1>";
-		} else { 
-			echo "<a href=\"link\" onclick=\"javascript:window.open('" . get_content_page_url() . "','Windows','width=+screen.availWidth+,height=+screen.availHeight,toolbar=" . esc_attr($toolbar) . ",menubar=" . esc_attr($menubar) . ",scrollbars=" . esc_attr($scrollbars) . ",resizable=" . esc_attr($resizable) . ",location=no,directories=no,status=no');return false\" )\"=\"\"><img src=\"" . $img_url . "\" width=\"" . $img_width . "\" height=\"" . $img_height . "\" alt=\"Enter\" title=\"Enter " . $website_title . "\" /></a>";
-		} 
-	?>
-	<?php echo "<a id=\"enter-button\" href=\"link\" onclick=\"javascript:window.open('" . get_content_page_url() . "','Windows','width=+screen.availWidth+,height=+screen.availHeight,toolbar=" . esc_attr($toolbar) . ",menubar=" . esc_attr($menubar) . ",scrollbars=" . esc_attr($scrollbars) . ",resizable=" . esc_attr($resizable) . ",location=no,directories=no,status=no');return false\" )\"=\"\">Enter</a>"; ?>
+	<?php if (!isset($img_url) || $img_url ==='') : ?>
+		<h1><?php echo $website_title; ?></h1><?php else : ?>
+		<img src="<?php echo $img_url; ?>" width="<?php echo $img_width; ?>" height="<?php echo $img_height; ?>" alt="<?php echo $website_title; ?>" /><?php endif; ?>
+		<a id="enter-button" href="#" onclick="openRequestedPopup(); return false;" title="<?php echo $website_title; ?>">Enter</a>
 	</div>
 </div>
 
