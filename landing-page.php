@@ -50,12 +50,11 @@
 <link href="<?php echo $plugin_dir_url . "landing-page.css"; ?>" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
-$(document).ready(function(){
-   $(document).bind("contextmenu",function(e){
-      return false;
-   });
-});
+	$(document).ready(function() {
+		$(document).bind("contextmenu",function(e) {
+      		return false;
+		});
+	});
 
 	//"resizable,scrollbars,status"
 	var windowObjectReference = null;
