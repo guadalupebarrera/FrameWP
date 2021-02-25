@@ -3,7 +3,7 @@
 Plugin Name: FrameWP
 Plugin URI: https://nathanguadalupe.com
 Description: Simple content protection plugin that prevents casual users from getting under the hood of Wordpress content.
-Version: 1.0 beta
+Version: 1.1 beta
 Author: Nathan Guadalupe
 Author URI: https://nathanguadalupe.com
 License: GNU General Public License v3.0
@@ -774,7 +774,7 @@ class FrameWP_Options {
 	}
 	
 	public function framewp_window_section_info() {
-		printf('Control your default window settings.');
+		printf('Control your default window settings. Chances are these settings will not matter if the user is running a modern brower.');
 	}
 
 	public function framewp_unique_identifier_section_info() {
@@ -838,14 +838,14 @@ class FrameWP_Options {
 
 	public function show_toolbar_callback() {
 		printf(
-			'<input type="checkbox" name="framewp_options[show_toolbar]" id="show_toolbar" value="show_toolbar" %s>',
+			'<input disabled type="checkbox" name="framewp_options[show_toolbar]" id="show_toolbar" value="show_toolbar" %s>',
 			(isset($this->framewp_options['show_toolbar']) && $this->framewp_options['show_toolbar'] === 'show_toolbar') ? 'checked' : ''
 		);
 	}
 
 	public function show_menubar_callback() {
 		printf(
-			'<input type="checkbox" name="framewp_options[show_menubar]" id="show_menubar" value="show_menubar" %s>',
+			'<input disabled type="checkbox" name="framewp_options[show_menubar]" id="show_menubar" value="show_menubar" %s>',
 			(isset($this->framewp_options['show_menubar']) && $this->framewp_options['show_menubar'] === 'show_menubar') ? 'checked' : ''
 		);
 	}
