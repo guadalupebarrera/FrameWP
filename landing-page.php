@@ -4,27 +4,9 @@
 
 	$framewp_option = get_option('framewp_options');
 
-	// $toolbar = $framewp_option['show_toolbar'];
-	// $menubar = $framewp_option['show_menubar'];
 	$scrollbars = $framewp_option['show_scrollbars'];
 	$resizable = $framewp_option['resizable_window'];
 	
-	/*
-	if (isset($toolbar) && $toolbar === 'show_toolbar') {
-		$toolbar = 'yes';
-	} else {
-		$toolbar = 'no';
-	}
-	*/
-	
-	/*
-	if (isset($menubar) && $menubar === 'show_menubar') {
-		$menubar = 'yes';
-	} else {
-		$menubar = 'no';
-	}
-	*/
-
 	if (isset($scrollbars) && $scrollbars === 'show_scrollbars') {
 		$scrollbars = 'yes';
 	} else {
@@ -56,9 +38,7 @@
 		});
 	});
 
-	//"resizable,scrollbars,status"
 	var windowObjectReference = null;
-	// var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
 	var windowFeatures = "resizable=<?php echo $resizable; ?>,scrollbars=<?php echo $scrollbars; ?>,status";
 	
 	function openRequestedPopup() {
