@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: FrameWP
-Plugin URI: https://nathanguadalupe.com
+Plugin URI: https://www.loopyloop.art/
 Description: Simple content protection plugin that prevents casual users from getting under the hood of Wordpress content.
 Version: 1.1 beta
-Author: Nathan Guadalupe
-Author URI: https://nathanguadalupe.com
+Author: Guadalupe Barrera
+Author URI: https://www.loopyloop.art/
 License: GNU General Public License v3.0
-License URI: https://nathanguadalupe.com
+License URI: https://www.loopyloop.art/
 */
 
 if (!defined('ABSPATH')) { die; }
